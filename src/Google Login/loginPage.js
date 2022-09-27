@@ -3,7 +3,7 @@ import * as Google from 'expo-auth-session/providers/google';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { StyleSheet, View } from 'react-native';
 import { Button } from 'react-native';
-export default function LoginPage({updateAuthenticated})
+export default function LoginPage({updateAuthenticated, addUser})
 {
     const [request, response, promptAsync] = Google.useIdTokenAuthRequest({
       expoClientId: `818169246657-adsf4hcu3k9st0o42e0b7dueqbr75666.apps.googleusercontent.com`
@@ -13,6 +13,7 @@ export default function LoginPage({updateAuthenticated})
 
       const storeData = async (value) => {
         try {
+          addUser(value);
           const jsonValue = JSON.stringify(value)
           await AsyncStorage.setItem('@AccessId', jsonValue)
           updateAuthenticated();
@@ -23,7 +24,7 @@ export default function LoginPage({updateAuthenticated})
       
 
         if (response?.type === 'success') {
-          fetch("https://c344-2401-4900-5eec-d30a-7020-4d39-4ab0-5bb1.in.ngrok.io/authenticate", 
+          fetch("https://4043-2401-4900-5df1-74f9-a943-41e3-f476-65f6.in.ngrok.io/authenticate", 
           {
             method: "POST",
             mode:'cors',
