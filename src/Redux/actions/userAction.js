@@ -1,8 +1,15 @@
 export function addUser(load)
 {
-    console.log(load)
     return{
         type:'USER_ADD',
         updatePayLoad:load
     };
+}
+
+export function addId(load)
+{
+    return{
+        type:'USER_ADD_ID',
+        updatePayLoad:load
+    }
 }

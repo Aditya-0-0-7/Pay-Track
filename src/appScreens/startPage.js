@@ -1,23 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
+import showToast from "./customComponent/toast";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StyleSheet, Image, Button, View} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import CustomLoginButton from "./customComponent/customButtonLogin";
 import Drawers from "./Navigation/Drawer";
 
 const Stack = createNativeStackNavigator();
 
 function Start(prop)
 {
-    const logoutHandler=()=>{
-        AsyncStorage.removeItem('@AccessId').then(()=>{
-            prop.updateAuthenticated();
+    async function logoutHandler()
+    {
+        try
+        {
+            await AsyncStorage.multiRemove(['@AccessId','@VerificationId']);
             prop.addUser({});
+            prop.updateAuthenticated();
+            prop.setIsVerified(false);
         }
-        ).catch(e=>{
-            console.log(e);
+        catch
+        {
+            showToast("Logout Failed");
         }
-        );
     }
     return(
         <NavigationContainer>
@@ -26,14 +32,14 @@ function Start(prop)
             screenOptions={{
                 title: 'Pay Track',
                 headerStyle: {
-                  backgroundColor: '#f4511e',
+                  backgroundColor: 'black',
                 },
                 headerTintColor: '#fff',
                 headerTitleStyle: {
                   fontWeight: 'bold',
                 },
-                headerLeft:()=> <Image style={styles.headerImage} source={require('../../Resources/logoIcon-removebg-preview.png')} />,
-                headerRight:()=> {return(<Button title="Log out" onPress={logoutHandler}></Button>)}
+                headerLeft:()=> <Image style={styles.headerImage} source={require('../../Resources/image.png')} />,
+                headerRight:()=> {return(<CustomLoginButton buttonText="Log out" img='google' press={logoutHandler} bgcolor='white' color='black'/>)}
             }}
             >
                 <Stack.Screen name="main" component={Drawers} />
@@ -43,8 +49,8 @@ function Start(prop)
 }
 const styles = StyleSheet.create({
     headerImage: {
-      width:50,
-      height:50,
+      width:30,
+      height:32,
       marginRight:15
     }
   });

@@ -5,9 +5,16 @@ export default (state={},action)=>{
             {
                 console.log('run')
                 return{
-                    
                     ...action.updatePayLoad
                 };
+            }
+        case 'USER_ADD_ID':
+            {
+                console.log("balle balle")
+                return{
+                    ...state,
+                    ...action.updatePayLoad
+                }
             }
         default:
             {

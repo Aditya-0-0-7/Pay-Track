@@ -8,7 +8,7 @@ function CustomDrawer({User, ...props})
 {
     return(
         <View style={styles.drawerContainer}>
-            <DrawerContentScrollView contentContainerStyle={{backgroundColor:'#fdeedc'}} {...props}>
+            <DrawerContentScrollView {...props}>
             <View style={styles.imageContainer}>
                     <Image style={styles.userImage} source={{uri:User.profile}} />
             </View>
@@ -22,6 +22,7 @@ const styles=StyleSheet.create(
     {
         drawerContainer:{
             flex:1,
+            backgroundColor:'#fff',
         },
         imageContainer:{
             flex:1,
