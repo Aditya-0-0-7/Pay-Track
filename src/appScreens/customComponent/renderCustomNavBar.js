@@ -21,7 +21,7 @@ function RenderCustomNavBar({addData,User,navigation})
     }
     React.useEffect(()=>{
         setLoading(true);
-        fetch("https://c24e-59-96-68-131.in.ngrok.io/temp/getList", 
+        fetch("https://5402-223-189-4-54.in.ngrok.io/temp/getList", 
           {
             method: "POST",
             mode:'cors',

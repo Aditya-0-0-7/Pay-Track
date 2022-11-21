@@ -76,7 +76,7 @@ const sendSmsVerification = async (phoneNumber) => {
 };
 
 const checkVerification = async (phoneNumber, code, token) => {
-  const res=await fetch("https://c24e-59-96-68-131.in.ngrok.io/authenticate/phone", 
+  const res=await fetch("https://5402-223-189-4-54.in.ngrok.io/authenticate/phone", 
   {
     method: "POST",
     mode:'cors',

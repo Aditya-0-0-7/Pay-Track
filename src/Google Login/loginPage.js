@@ -43,7 +43,7 @@ export default function LoginPage({updateAuthenticated, addUser, addId, setIsVer
       
         if (response?.type === 'success') {
           setLoading(true);
-          fetch("https://c24e-59-96-68-131.in.ngrok.io/authenticate", 
+          fetch("https://5402-223-189-4-54.in.ngrok.io/authenticate", 
           {
             method: "POST",
             mode:'cors',
@@ -55,9 +55,10 @@ export default function LoginPage({updateAuthenticated, addUser, addId, setIsVer
                 if(res.status==200)
                 {
                   res.json().then(jres=>{
-                    if('phone' in jres)
+                    console.log(jres)
+                    if('verificationId' in jres)
                     {
-                      storeId(jres.phone);
+                      storeId(jres.verificationId);
                     }
                     storeData(jres);
                   })
