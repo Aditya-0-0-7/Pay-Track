@@ -19,7 +19,7 @@ function CreateTransaction({User})
 
     const createTransactions=()=>{
         setLoading(true);
-        fetch("https://5402-223-189-4-54.in.ngrok.io/temp/addTransaction", 
+        fetch("https://pay-track-backend-4w1wgb3q3-aditya-0-0-7.vercel.app/temp/addTransaction", 
           {
             method: "POST",
             mode:'cors',

@@ -43,7 +43,7 @@ export default function LoginPage({updateAuthenticated, addUser, addId, setIsVer
       
         if (response?.type === 'success') {
           setLoading(true);
-          fetch("https://5402-223-189-4-54.in.ngrok.io/authenticate", 
+          fetch("https://pay-track-backend-4w1wgb3q3-aditya-0-0-7.vercel.app/authenticate", 
           {
             method: "POST",
             mode:'cors',

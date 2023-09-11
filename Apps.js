@@ -78,10 +78,10 @@ function Apps(prop) {
     return(
         <SafeAreaProvider>
           <StatusBar />
-          <Start updateAuthenticated={updateAuthenticated} addUser={prop.add} setIsVerified={setIsVerified}/>
+          <View><Text>hello</Text></View>
         </SafeAreaProvider>
     );
-}
+}//<Start updateAuthenticated={updateAuthenticated} addUser={prop.add} setIsVerified={setIsVerified}/>
 const styles = StyleSheet.create({
   frontContainer: {
     flex: 4,

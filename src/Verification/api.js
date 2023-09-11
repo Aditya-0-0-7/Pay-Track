@@ -57,7 +57,7 @@ const sendSmsVerification = async (phoneNumber) => {
    const response = await fetch(`https://verify.twilio.com/v2/Services/VA02b956116d64b53a52b44a1465aa9a00/Verifications`, {
      method: "POST",
      headers: {
-      'Authorization': 'Basic '+Base64.btoa('AC9541b57c79e7908af16f422d45f0a586:f83b961b748bf2be702a129254d53444'), 
+      'Authorization': 'Basic '+Base64.btoa('ACf1563ba7083d51f06d968fd60c55c76f:7b2c0114a0aaa1afa2af45d83c195a44'), 
        "Content-Type": "application/x-www-form-urlencoded",
      },
      body: formBody,
@@ -76,7 +76,7 @@ const sendSmsVerification = async (phoneNumber) => {
 };
 
 const checkVerification = async (phoneNumber, code, token) => {
-  const res=await fetch("https://5402-223-189-4-54.in.ngrok.io/authenticate/phone", 
+  const res=await fetch("https://pay-track-backend-4w1wgb3q3-aditya-0-0-7.vercel.app/authenticate/phone", 
   {
     method: "POST",
     mode:'cors',
