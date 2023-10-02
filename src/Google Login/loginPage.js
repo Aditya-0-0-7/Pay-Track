@@ -10,7 +10,10 @@ export default function LoginPage({updateAuthenticated, addUser, addId, setIsVer
 {
     const[isLoading,setLoading]=React.useState(false);
     const [request, response, promptAsync] = Google.useIdTokenAuthRequest({
-      expoClientId: `818169246657-adsf4hcu3k9st0o42e0b7dueqbr75666.apps.googleusercontent.com`
+      androidClientId: `818169246657-adsf4hcu3k9st0o42e0b7dueqbr75666.apps.googleusercontent.com`,
+      expoClientId: `818169246657-adsf4hcu3k9st0o42e0b7dueqbr75666.apps.googleusercontent.com`,
+      redirectUri: 'https://auth.expo.io/@aditya_0_0_7/payTrack',
+      
     });
 
     React.useEffect(() => {
@@ -43,7 +46,7 @@ export default function LoginPage({updateAuthenticated, addUser, addId, setIsVer
       
         if (response?.type === 'success') {
           setLoading(true);
-          fetch("https://pay-track-backend-4w1wgb3q3-aditya-0-0-7.vercel.app/authenticate", 
+          fetch("https://pay-track-backend.vercel.app/authenticate", 
           {
             method: "POST",
             mode:'cors',
@@ -55,7 +58,6 @@ export default function LoginPage({updateAuthenticated, addUser, addId, setIsVer
                 if(res.status==200)
                 {
                   res.json().then(jres=>{
-                    console.log(jres)
                     if('verificationId' in jres)
                     {
                       storeId(jres.verificationId);
@@ -74,7 +76,6 @@ export default function LoginPage({updateAuthenticated, addUser, addId, setIsVer
             showToast("Login Failed");
           })
       }}, [response]);
-    
       return (
         <View style={styles.container}>
         {!isLoading?<CustomLoginButton

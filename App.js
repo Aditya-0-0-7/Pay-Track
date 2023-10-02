@@ -9,7 +9,7 @@ export default function App()
     return(
     <RootSiblingParent>
         <Provider store={store}>
-            <Apps />
+                <Apps />
         </Provider>
     </RootSiblingParent>
     );

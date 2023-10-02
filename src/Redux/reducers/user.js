@@ -3,14 +3,12 @@ export default (state={},action)=>{
     {
         case 'USER_ADD':
             {
-                console.log('run')
                 return{
                     ...action.updatePayLoad
                 };
             }
         case 'USER_ADD_ID':
             {
-                console.log("balle balle")
                 return{
                     ...state,
                     ...action.updatePayLoad
@@ -18,7 +16,6 @@ export default (state={},action)=>{
             }
         default:
             {
-                console.log('runs')
                 return state;
             }
     }

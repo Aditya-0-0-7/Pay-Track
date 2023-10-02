@@ -8,6 +8,7 @@ import {connect} from 'react-redux';
 import { useState } from "react";
 import { ScrollView } from "react-native-gesture-handler";
 import Loading from "./customComponent/loading";
+import { customFetch } from "../helperFunction/customFetch";
 function CreateTransaction({User})
 {
     const [amount,setAmount]=useState('0');
@@ -19,15 +20,7 @@ function CreateTransaction({User})
 
     const createTransactions=()=>{
         setLoading(true);
-        fetch("https://pay-track-backend-4w1wgb3q3-aditya-0-0-7.vercel.app/temp/addTransaction", 
-          {
-            method: "POST",
-            mode:'cors',
-            body: JSON.stringify({name:name,amount:amount,Description:description,payTo:payTo,Verification_ID:User.verificationId,status:0}),
-            headers: {
-            "Content-Type": "application/json"
-            }
-        }).then((res)=>{
+        customFetch("https://8204-117-245-205-123.ngrok-free.app/temp/addTransaction",{name:name,amount:amount,Description:description,payTo:payTo,status:0},User.verificationId).then((res)=>{
             console.log(res.status)
             if(res.status===200)
             {

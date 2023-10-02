@@ -112,13 +112,7 @@ function Identification({addId,User,setIsVerified})
                     </Text>
                 </TouchableOpacity>
 
-                <CountryPicker
-                    show={show}
-                    pickerButtonOnPress={(item) => {
-                    setCountryCode(item.dial_code);
-                    setShow(false);
-                    }}
-                />
+                
                 </View>
                 <View style={styles.innerIndividual2}>
                     <TextInput placeholderTextColor={"grey"} placeholder="Phone Number" value={Id} style={{...styles.transactionInput,maxWidth:width*0.6}} onChangeText={(val)=>{setId(val)}}/>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import LoginPage from './src/Google Login/loginPage';
 import Identification from './src/appScreens/identification';
+import Temp from './src/appScreens/customComponent/temp';
 import configStore from './src/Redux/store/configStore';
 import {addUser, addId} from './src/Redux/actions/userAction';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -78,7 +79,7 @@ function Apps(prop) {
     return(
         <SafeAreaProvider>
           <StatusBar />
-          <View><Text>hello</Text></View>
+            <Start updateAuthenticated={updateAuthenticated} addUser={prop.add} setIsVerified={setIsVerified}/>
         </SafeAreaProvider>
     );
 }//<Start updateAuthenticated={updateAuthenticated} addUser={prop.add} setIsVerified={setIsVerified}/>
